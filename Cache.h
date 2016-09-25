@@ -38,7 +38,7 @@ public:
   int getCache_size() const;
   int getBlock_size() const;
 
-  //Esta funcion multiplica dos valores y divide otro, es sólo para probar algo random
+  //Esta funcion multiplica dos valores y suma otro, es sólo para probar algo random
   double pruebaCache() const;
 
 //Así se encapsulan las variables del objeto, poniendolas como private, esto
