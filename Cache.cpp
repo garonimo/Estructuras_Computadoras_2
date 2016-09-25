@@ -27,7 +27,7 @@ Cache::Cache(int asociatividad, int cache_size, int block_size)
   newBlock_size = block_size;
 }
 
-Cache::~Cache()  //Se define el constructor, se deja vacío
+Cache::~Cache()  //Se define el deconstructor, se deja vacío
 {
 
 }

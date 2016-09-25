@@ -16,7 +16,7 @@
 #include <iostream>
 #include "Cache.h"
 
-using namespace std;  //el namespace standar sirve para muchas cosas
+using namespace std;  //el namespace standar(std) sirve para muchas cosas
                       //pero en este caso se usa sólo para imprimir de manera
 int main()            //simplificada utilizando solamente cout
 {
