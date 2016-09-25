@@ -236,6 +236,8 @@
 *.o
 *.gch
 *.exe
+memory-trace-gcc.trace.gz
+aligned.trace
 Xilinx
 MiniAlu
 *sqlite
