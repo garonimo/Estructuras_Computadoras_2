@@ -24,7 +24,8 @@ using namespace std;
 class Cache
 {
 public:
-  //Esta funcion llamada Cache es el constructor, se usa para crear la clase
+  //Esta funcion llamada Cache es el constructor, se usa para crear el objeto
+  //Tiene que tener el mismo nombre de la clase
   Cache(int, int, int);
 
   //Esta otra funcion es el destructor, creo que lo vamos a necesitar por que esto
