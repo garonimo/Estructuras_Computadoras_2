@@ -16,9 +16,9 @@
 
 #include "Cache.h"
 
-//Aquí se crea la clase, se usa ::Cache para poder llamar al Constructor
+//Aquí se define la clase, se usa ::Cache para poder llamar al Constructor
 //que está en el header(llamado Cache también), hecho esto ya se pueden usar las
-//variables del objeto ya que como estan prrivadas solo los objetos con el
+//variables del objeto ya que como estan privadas solo los objetos con el
 //constructor Cache que está declarado en el .h pueden modificar estas variables
 Cache::Cache(int asociatividad, int cache_size, int block_size)
 {
