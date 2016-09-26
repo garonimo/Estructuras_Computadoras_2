@@ -1,0 +1,7 @@
+/home/andres/git/Estructuras2/main.cpp: In function ‘int main()’:
+/home/andres/git/Estructuras2/main.cpp:59:26: error: ‘stoi’ is not a member of ‘std’
+         int direccion2 = std::stoi(direccion,nullptr,16);
+                          ^
+/home/andres/git/Estructuras2/main.cpp:59:46: error: ‘nullptr’ was not declared in this scope
+         int direccion2 = std::stoi(direccion,nullptr,16);
+                                              ^

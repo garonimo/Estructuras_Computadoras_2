@@ -14,6 +14,9 @@
 */
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include "Cache.h"
 
 using namespace std;  //el namespace standar(std) sirve para muchas cosas
@@ -45,6 +48,22 @@ int main()            //simplificada utilizando solamente cout
     "El tamaño del cache es: " << MyCache.getCache_size() << endl <<
     "El tamaño del bloque es: " << MyCache.getBlock_size() << endl
     << "El Calculo random es: " << MyCache.pruebaCache()  << endl;
+
+    string line;
+    ifstream myfile ("aligned.trace");
+    if (myfile.is_open())
+    {
+      while ( getline (myfile,line) )
+      {
+        string direccion = line.substr (0,7);
+        int direccion2 = std::stoi(direccion,nullptr,16);
+        char res = line[line.size()-1];
+        cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+      }
+      myfile.close();
+    }
+
+    else cout << "Unable to open file";
 
   return 0;
 }
