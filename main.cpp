@@ -55,8 +55,10 @@ int main()            //simplificada utilizando solamente cout
     {
       while ( getline (myfile,line) )
       {
-        string direccion = line.substr (0,7);
-        int direccion2 = std::stoi(direccion,nullptr,16);
+        string direccion = line.substr (0,8);
+        stringstream ss(direccion);
+        long direccion2;
+        ss >> std::hex >> direccion2;
         char res = line[line.size()-1];
         cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
       }
