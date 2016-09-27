@@ -50,7 +50,7 @@ int main()            //simplificada utilizando solamente cout
     << "El Calculo random es: " << MyCache.pruebaCache()  << endl;
 
     string line;
-    ifstream myfile ("aligned.trace");
+    ifstream myfile ("solomil.trace");
     if (myfile.is_open())
     {
       while ( getline (myfile,line) )
