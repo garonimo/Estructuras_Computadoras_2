@@ -44,6 +44,7 @@ int main()
   std::cout << "misses= " << miss << std::endl;
 
   //int randNum = 0;
+  srand( time(NULL) );
   int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
   std::cout << "random = " << randNum << std::endl;
 
