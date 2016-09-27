@@ -47,7 +47,7 @@ int main()            //simplificada utilizando solamente cout
   cout << endl << "La asociatividad es: " << MyCache.getAsociatividad() << endl <<
     "El tamaño del cache es: " << MyCache.getCache_size() << endl <<
     "El tamaño del bloque es: " << MyCache.getBlock_size() << endl
-    << "El Calculo random es: " << MyCache.pruebaCache()  << endl;
+    << "El número de hits es: " << MyCache.MapeoDirecto()  << endl;
 
     string line;
     ifstream myfile ("solomil.trace");
@@ -60,7 +60,7 @@ int main()            //simplificada utilizando solamente cout
         long direccion2;
         ss >> std::hex >> direccion2;
         char res = line[line.size()-1];
-        cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+        //cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
       }
       myfile.close();
     }
