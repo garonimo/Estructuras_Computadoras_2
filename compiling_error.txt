@@ -1,9 +1,0 @@
-/tmp/ccxoKKf6.o: In function `main':
-main.cpp:(.text+0xd9): undefined reference to `Cache::Cache(int, int, int)'
-main.cpp:(.text+0xe5): undefined reference to `Cache::getAsociatividad() const'
-main.cpp:(.text+0xff): undefined reference to `Cache::MapeoDirecto() const'
-main.cpp:(.text+0x110): undefined reference to `Cache::getBlock_size() const'
-main.cpp:(.text+0x11e): undefined reference to `Cache::getCache_size() const'
-main.cpp:(.text+0x1cb): undefined reference to `Cache::~Cache()'
-main.cpp:(.text+0x1ed): undefined reference to `Cache::~Cache()'
-collect2: error: ld returned 1 exit status
