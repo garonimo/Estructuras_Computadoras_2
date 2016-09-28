@@ -53,6 +53,13 @@ if (MyCache.getAsociatividad()==1) {
     "El tamaño del bloque es: " << MyCache.getBlock_size() << endl
     << "El número de hits es: " << MyCache.MapeoDirecto()  << endl;
 }
+else {
+  cout << endl << "La asociatividad es: " << MyCache.getAsociatividad() << "-way asociative" << endl <<
+    "El tamaño del cache es: " << MyCache.getCache_size() << endl <<
+    "El tamaño del bloque es: " << MyCache.getBlock_size() << endl
+    << "El número de hits es: " << MyCache.Asociativa()  << endl;
+
+}
 
   return 0;
 }

@@ -42,6 +42,8 @@ public:
   //Esta funcion multiplica dos valores y suma otro, es sólo para probar algo random
   double MapeoDirecto() const;
 
+  double Asociativa() const;
+
 //Así se encapsulan las variables del objeto, poniendolas como private, esto
 //se hace para que ninguna funcion que no esta definida arriba en public
 //pueda cambiar las variables del objeto Cache

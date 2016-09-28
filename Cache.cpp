@@ -56,6 +56,12 @@ int Cache::getBlock_size() const
   return newBlock_size;
 }
 
+double Cache::Asociativa() const
+{
+
+return 0;
+}
+
 double Cache::MapeoDirecto() const
 {
 
@@ -134,7 +140,7 @@ double Cache::MapeoDirecto() const
       /*
 
       if (tag_compare == tag_compare2)
-      { 
+      {
         cout << "hola" << endl;
       }
       */
