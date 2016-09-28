@@ -21,21 +21,22 @@
 
 using namespace std;  //el namespace standar(std) sirve para muchas cosas
                       //pero en este caso se usa sólo para imprimir de manera
-int main()            //simplificada utilizando solamente cout
+int main(int argc, char* argv[])            //simplificada utilizando solamente cout
 {
+
   //estas seran las variables del objeto cache
-  int asociatividad;
-  int cache_size;
-  int block_size;
+  int asociatividad = atoi(argv[1]);
+  int cache_size = atoi(argv[2]);
+  int block_size = atoi(argv[3]);
 
   //Por ahora hagamoslo así, ingresando por consola los valores
-  cout << "Ingrese la asociatividad " << endl << "\n Ingrese 1 para mapeo directo, " <<
+/*  cout << "Ingrese la asociatividad " << endl << "\n Ingrese 1 para mapeo directo, " <<
   " \n 2 para 2-way associative, " << "\n y 4 para 4-way associative " << endl << "\n Asociatividad: ";
   cin >> asociatividad;
   cout << "Ingrese el tamaño del cache: ";
   cin >> cache_size;
   cout << "Ingrese el tamaño del bloque: ";
-  cin >> block_size;
+  cin >> block_size;*/
 
 
   //Aquí se instancia el objeto, utilizando el nombre de la clase, que es Cache
