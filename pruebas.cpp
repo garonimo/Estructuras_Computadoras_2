@@ -1,7 +1,25 @@
 //pruebas.cpp
 // g++ -std=c++11 pruebas.cpp
 
+#include <iostream>
+#include <sstream>
+#include <bitset>
+#include <string>
 
+using namespace std;
+
+int main()
+{
+
+    int dec_index;
+    string suma = "1111";
+    dec_index = stoi (suma,nullptr,2);
+    cout << suma << endl;
+    cout << dec_index << endl;
+}
+
+
+/*
 #include <iostream>
 //#include <iomanip>
 //#include <sstream>
@@ -18,10 +36,9 @@ int main()
 
   std::cout << "block_number = " << block_number << std::endl;
 
-  int cache_blocks[block_number - 1];
-  cache_blocks[5] = 13;
+  int cache_blocks[block_number*2 - 1];
 
-  long direccion_hex1 = 3220041619;
+  long direccion_hex1 = 19;
   //int direccion_hex2 = 44;
   int position;
 
@@ -52,3 +69,4 @@ int main()
   return 0;
 
 }
+*/

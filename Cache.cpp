@@ -19,6 +19,9 @@
 #include <string>
 #include <sstream>
 #include "Cache.h"
+#include <bitset>
+#include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -60,13 +63,22 @@ double Cache::MapeoDirecto() const
   //int block_size = 32;
   int hit = 0;
   int miss = 0;
-  int block_number;
+  int line_number;
 
-  block_number = newCache_size / newBlock_size;
-  //cout << "block_number = " << block_number << endl;
+  line_number = newCache_size / newBlock_size;
 
-  long cache_blocks[block_number - 1] = { };
+  int offset = log2(newBlock_size);
+  int index = log2(line_number);
+  int tag = 32 - offset - index;
+  int tag_index = tag+index;
+  //string tag_compare;
+  //int
+  cout << "line_number = " << line_number << endl;
+
+  string cache_line[line_number] = { };
   int position;
+
+  int dec_index;
 
 
   string line;
@@ -76,11 +88,81 @@ double Cache::MapeoDirecto() const
     while ( getline (myfile,line) )
     {
       string direccion = line.substr (0,8);
+
       stringstream ss(direccion);
       long direccion2;            //direccion2 es la que hay que usar
       ss >> hex >> direccion2;
-      char res = line[line.size()-1];
-      cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+      //char res = line[line.size()-1];
+      //cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+      // direccion2 el valor en decimal
+
+      string s = direccion;
+      stringstream s1;
+      s1 << hex << s;
+      unsigned n;
+      s1 >> n;
+      bitset<32> b(n);
+      // outputs "00000000000000000000000000001010"
+      cout << b << endl;
+      //cout << b[0] << endl;
+      //cout << b[1] << endl;
+      //cout << b[2] << endl;
+      //cout << b[30] << endl;
+      //cout << b[31] << endl;
+      //cout << b[32] << endl;
+      //cout << b[33] << endl;
+      //cout << offset << endl;
+      //cout << index << endl;
+      //cout << tag << endl;
+
+      string a = b.to_string();
+      string tag_compare = a.substr (0,tag);
+      cout << tag_compare << endl;
+
+      string c = b.to_string();
+      string ssindexss = c.substr (tag,tag_index);
+      cout << ssindexss << endl;
+
+      string INDEX = ssindexss.substr (0,index);
+      cout << INDEX << endl;
+
+      dec_index = stoi (INDEX,nullptr,2);
+      //dec_index = std::stoi( suma );
+      //dec_index = atoi (INDEX.c_str());
+      cout << dec_index << endl;
+      //string tag_compare2 = "101111111110110111100010";
+      /*
+
+      if (tag_compare == tag_compare2)
+      { 
+        cout << "hola" << endl;
+      }
+      */
+      //position = direccion2%line_number; // saco el index
+      //cout << "position = " << position << endl;
+      cout << "cache_line[dec_index] = " << cache_line[dec_index] << endl;
+
+      if (cache_line[dec_index] == tag_compare)
+      {
+        hit = hit + 1;
+      }
+      else
+      {
+        cache_line[dec_index] = tag_compare;
+        miss = miss + 1;
+      }
+
+      cout << "hits = " << hit << endl;
+      cout << "misses= " << miss << endl;
+
+
+      // HASTA ac'a tengo el line_number
+
+
+
+
+      //cout << direccion2 << endl;
+
       //cout << "direccion:" << direccion2 << "direccion" << '\n';
       //------------------------------------------------------------------------------
 
@@ -88,17 +170,15 @@ double Cache::MapeoDirecto() const
       //int direccion_hex2 = 44;
 
 
-      position = direccion2%block_number;
-      cout << "position = " << position << endl;
-      cout << "cache_blocks[position] = " << cache_blocks[position] << endl;
 
-      if (cache_blocks[position] == direccion2)
+      /*
+      if (cache_line[position] == direccion2)
       {
         hit = hit + 1;
       }
       else
       {
-        cache_blocks[position] = direccion2;
+        cache_line[position] = direccion2;
         miss = miss + 1;
       }
 
@@ -108,6 +188,7 @@ double Cache::MapeoDirecto() const
       //srand( time(NULL) );
       //int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
       //cout << "random = " << randNum << endl;
+      */
       //----------------------------------------------------------------------------------
     }
     myfile.close();
