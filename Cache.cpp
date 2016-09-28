@@ -58,6 +58,16 @@ double Cache::MapeoDirecto() const
 
   //int cache_size = 256;
   //int block_size = 32;
+  int hit = 0;
+  int miss = 0;
+  int block_number;
+
+  block_number = newCache_size / newBlock_size;
+  //cout << "block_number = " << block_number << endl;
+
+  long cache_blocks[block_number - 1] = { };
+  int position;
+
 
   string line;
   ifstream myfile ("solomil.trace");
@@ -71,48 +81,39 @@ double Cache::MapeoDirecto() const
       ss >> hex >> direccion2;
       char res = line[line.size()-1];
       cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+      //cout << "direccion:" << direccion2 << "direccion" << '\n';
+      //------------------------------------------------------------------------------
+
+      //int direccion_hex1 = 13;
+      //int direccion_hex2 = 44;
+
+
+      position = direccion2%block_number;
+      cout << "position = " << position << endl;
+      cout << "cache_blocks[position] = " << cache_blocks[position] << endl;
+
+      if (cache_blocks[position] == direccion2)
+      {
+        hit = hit + 1;
+      }
+      else
+      {
+        cache_blocks[position] = direccion2;
+        miss = miss + 1;
+      }
+
+      cout << "hits = " << hit << endl;
+      cout << "misses= " << miss << endl;
+
+      //srand( time(NULL) );
+      //int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
+      //cout << "random = " << randNum << endl;
+      //----------------------------------------------------------------------------------
     }
     myfile.close();
   }
 
   else cout << "No se pudo abrir el archivo";
-
-//------------------------------------------------------------------------------
-  int block_number;
-
-  block_number = newCache_size / newBlock_size;
-
-  cout << "block_number = " << block_number << endl;
-
-  int cache_blocks[block_number - 1];
-
-  int direccion_hex1 = 13;
-  //int direccion_hex2 = 44;
-  int position;
-
-  position = direccion_hex1%block_number;
-  cout << "position = " << position<< endl;
-
-  int hit = 0;
-  int miss = 0;
-
-  if (direccion_hex1 == cache_blocks[position])
-  {
-    hit = hit + 1;
-  }
-  else
-  {
-    cache_blocks[position] == direccion_hex1;
-    miss = miss + 1;
-  }
-
-  cout << "hits = " << hit << endl;
-  cout << "misses= " << miss << endl;
-
-  //int randNum = 0;
-  srand( time(NULL) );
-  int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
-  cout << "random = " << randNum << endl;
 
   return hit;
 

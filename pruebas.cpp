@@ -19,8 +19,9 @@ int main()
   std::cout << "block_number = " << block_number << std::endl;
 
   int cache_blocks[block_number - 1];
+  cache_blocks[5] = 13;
 
-  int direccion_hex1 = 13;
+  long direccion_hex1 = 3220041619;
   //int direccion_hex2 = 44;
   int position;
 
@@ -45,7 +46,7 @@ int main()
 
   //int randNum = 0;
   srand( time(NULL) );
-  int randNum = rand() % 85; // generar 0 'o 1 random // a'un no sirve
+  int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
   std::cout << "random = " << randNum << std::endl;
 
   return 0;
