@@ -76,6 +76,8 @@ double Cache::MapeoDirecto() const
   }
 
   else cout << "No se pudo abrir el archivo";
+
+//------------------------------------------------------------------------------
   int block_number;
 
   block_number = newCache_size / newBlock_size;
