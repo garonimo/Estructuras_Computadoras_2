@@ -67,7 +67,7 @@ double Cache::MapeoDirecto() const
     {
       string direccion = line.substr (0,8);
       stringstream ss(direccion);
-      long direccion2;
+      long direccion2;            //direccion2 es la que hay que usar
       ss >> hex >> direccion2;
       char res = line[line.size()-1];
       cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
@@ -75,7 +75,7 @@ double Cache::MapeoDirecto() const
     myfile.close();
   }
 
-  else cout << "Unable to open file";
+  else cout << "No se pudo abrir el archivo";
   int block_number;
 
   block_number = newCache_size / newBlock_size;
