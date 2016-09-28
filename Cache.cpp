@@ -20,6 +20,8 @@
 #include <sstream>
 #include "Cache.h"
 
+using namespace std;
+
 //Aquí se define la clase, se usa ::Cache para poder llamar al Constructor
 //que está en el header(llamado Cache también), hecho esto ya se pueden usar las
 //variables del objeto ya que como estan privadas solo los objetos con el
@@ -66,7 +68,7 @@ double Cache::MapeoDirecto() const
       string direccion = line.substr (0,8);
       stringstream ss(direccion);
       long direccion2;
-      ss >> std::hex >> direccion2;
+      ss >> hex >> direccion2;
       char res = line[line.size()-1];
       cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
     }
@@ -78,7 +80,7 @@ double Cache::MapeoDirecto() const
 
   block_number = newCache_size / newBlock_size;
 
-  std::cout << "block_number = " << block_number << std::endl;
+  cout << "block_number = " << block_number << endl;
 
   int cache_blocks[block_number - 1];
 
@@ -87,7 +89,7 @@ double Cache::MapeoDirecto() const
   int position;
 
   position = direccion_hex1%block_number;
-  std::cout << "position = " << position<< std::endl;
+  cout << "position = " << position<< endl;
 
   int hit = 0;
   int miss = 0;
@@ -102,13 +104,13 @@ double Cache::MapeoDirecto() const
     miss = miss + 1;
   }
 
-  std::cout << "hits = " << hit << std::endl;
-  std::cout << "misses= " << miss << std::endl;
+  cout << "hits = " << hit << endl;
+  cout << "misses= " << miss << endl;
 
   //int randNum = 0;
   srand( time(NULL) );
   int randNum = rand() % 2; // generar 0 'o 1 random // a'un no sirve
-  std::cout << "random = " << randNum << std::endl;
+  cout << "random = " << randNum << endl;
 
   return hit;
 
