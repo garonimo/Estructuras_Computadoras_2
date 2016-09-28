@@ -14,6 +14,10 @@
 * todo lo que está en el header
 */
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include "Cache.h"
 
 //Aquí se define la clase, se usa ::Cache para poder llamar al Constructor
@@ -49,10 +53,27 @@ int Cache::getBlock_size() const
 
 double Cache::MapeoDirecto() const
 {
-  //return (newAsociatividad*newCache_size)+(newBlock_size); //es un calculo random
 
   //int cache_size = 256;
   //int block_size = 32;
+
+  string line;
+  ifstream myfile ("solomil.trace");
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+      string direccion = line.substr (0,8);
+      stringstream ss(direccion);
+      long direccion2;
+      ss >> std::hex >> direccion2;
+      char res = line[line.size()-1];
+      cout << "direccion: " << direccion2 << "\t read o write: " << res << '\n';
+    }
+    myfile.close();
+  }
+
+  else cout << "Unable to open file";
   int block_number;
 
   block_number = newCache_size / newBlock_size;
