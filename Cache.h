@@ -40,7 +40,7 @@ public:
   int getBlock_size() const;
 
   //Esta funcion multiplica dos valores y suma otro, es sólo para probar algo random
-  double pruebaCache() const;
+  double MapeoDirecto() const;
 
 //Así se encapsulan las variables del objeto, poniendolas como private, esto
 //se hace para que ninguna funcion que no esta definida arriba en public
