@@ -37,10 +37,11 @@ public:
   int getCache_size() const;
   int getBlock_size() const;
 
-  // se definan las funciones MapeoDirecto() y Asociativa()
+  // se definen las funciones MapeoDirecto() y Asociativa()
   double MapeoDirecto() const;
   double Asociativa() const;
 
+  // aquí se encapsulan las variables del objeto
 private:
   int newAsociatividad;
   int newCache_size;

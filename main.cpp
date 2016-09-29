@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
   int cache_size = atoi(argv[2]);
   int block_size = atoi(argv[3]);
 
-  srand( time(NULL) ); // variable para generar el número random de la función Asociativa()
+  srand( time(NULL) ); // semilla para generar el número random de la función Asociativa()
 
 
   // aquí se instancia el objeto utilizando el nombre de la clase
