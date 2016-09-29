@@ -77,7 +77,7 @@ double Cache::Asociativa() const // función para los cachés con asociatividad 
 
   // acá se reciben los datos del archivo y se operan sobre cada uno de ellos
 
-  ifstream myfile ("solomil.trace");
+  ifstream myfile ("aligned.trace");
   if (myfile.is_open())
   {
     while ( getline (myfile,line) )
@@ -194,13 +194,13 @@ double Cache::MapeoDirecto() const
   int dec_index; // variable para obtener el index de la dirección en decimal
   double contador; // contador de miss rate
 
-  int position; // variable para posición del array
+  //int position; // variable para posición del array
 
   string line; // variable línea de entrada del archivo
 
   // acá se reciben los datos del archivo y se operan sobre cada uno de ellos
 
-  ifstream myfile ("solomil.trace");
+  ifstream myfile ("aligned.trace");
   if (myfile.is_open())
   {
     while ( getline (myfile,line) )
