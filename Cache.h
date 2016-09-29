@@ -13,40 +13,34 @@
 *	declaran las funciones
 */
 
+// librerías utilizadas
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+// definiciones
 #ifndef Cache_H
 #define Cache_H
 
+// clase Cache. Aquí se declaran las funciones
 class Cache
 {
 public:
-  //Esta funcion llamada Cache es el constructor, se usa para crear el objeto
-  //Tiene que tener el mismo nombre de la clase
-  Cache(int, int, int);
 
-  //Esta otra funcion es el destructor, creo que lo vamos a necesitar por que esto
-  //borra un objeto, así podemos borrar un objeto con cierta asociatividad y
-  //tamaño y luego se genera otro con otros valores, para que así trabajemos
-  //con un solo objeto
-  ~Cache();
+  Cache(int, int, int); // constructor
 
+  ~Cache(); // deconstructor
+
+  // retorna asociatividad y tamaños
   int getAsociatividad() const;
-     //Para poder retornar el dato de asociatividad
   int getCache_size() const;
   int getBlock_size() const;
 
-  //Esta funcion multiplica dos valores y suma otro, es sólo para probar algo random
+  // se definan las funciones MapeoDirecto() y Asociativa()
   double MapeoDirecto() const;
-
   double Asociativa() const;
 
-//Así se encapsulan las variables del objeto, poniendolas como private, esto
-//se hace para que ninguna funcion que no esta definida arriba en public
-//pueda cambiar las variables del objeto Cache
 private:
   int newAsociatividad;
   int newCache_size;
