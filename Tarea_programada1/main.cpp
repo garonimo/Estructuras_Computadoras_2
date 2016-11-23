@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 {
 
   // estas serán las variables del objeto caché
-  int asociatividad = atoi(argv[1]);
+  int asociatividad = atoi(argv[1]); //SIEMPRE UNO
   int cache_size = atoi(argv[2]);
   int block_size = atoi(argv[3]);
 
@@ -35,8 +35,10 @@ int main(int argc, char* argv[])
   // aquí se instancia el objeto utilizando el nombre de la clase
   Cache MyCache(asociatividad, cache_size, block_size);
 
+//PARA LLAMAR:
+  MyCache.MESI();
   // según la asociatividad tomada desde la terminal se escoge una función
-  if (MyCache.getAsociatividad()==1)
+  /*if (MyCache.getAsociatividad()==1)
   {
       cout << endl << "La asociatividad es directa " << endl <<
       "El tamaño del cache es: " << MyCache.getCache_size() << endl <<
@@ -49,6 +51,6 @@ int main(int argc, char* argv[])
       "El tamaño del cache es: " << MyCache.getCache_size() << endl <<
       "El tamaño del bloque es: " << MyCache.getBlock_size() << endl
       << "El miss rate es: " << MyCache.Asociativa()  << " %" << endl;
-  }
+  }*/
   return 0;
 }

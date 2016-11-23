@@ -40,6 +40,7 @@ public:
   // se definen las funciones MapeoDirecto() y Asociativa()
   double MapeoDirecto() const;
   double Asociativa() const;
+  double MESI() const;
 
   // aquí se encapsulan las variables del objeto
 private:

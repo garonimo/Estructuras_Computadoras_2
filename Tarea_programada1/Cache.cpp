@@ -171,7 +171,14 @@ double Cache::Asociativa() const // función para los cachés con asociatividad 
 
   return contador; // devuelve el miss rate
 }
+//--------------------------------------------------------------------------------
+double Cache::MESI() const
+{
 
+cout << "hola" << endl;
+
+  return 0;
+}
 //---------------------------------------------------------------------------------
 
 double Cache::MapeoDirecto() const

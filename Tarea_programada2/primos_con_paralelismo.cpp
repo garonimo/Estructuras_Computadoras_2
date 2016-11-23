@@ -63,7 +63,7 @@ int main()
   }
 
   if (id == 1) {
-  	for(uInt i2 = ((N/4) +1); count2 < ((N/2) +1); i2 += 2) {
+  	for(uInt i2 = 1655153; count2 < ((N/2) +1); i2 += 2) {
 
   		is_prime2 = true;
 
@@ -81,7 +81,7 @@ int main()
   }
 
   if (id == 2) {
-  	for(uInt i3 = ((N/2) +2); count3 < ((N*(3/4))+1); i3 += 2) {
+  	for(uInt i3 = 3497873; count3 < 375001; i3 += 2) {
 
   		is_prime3 = true;
 
@@ -99,7 +99,7 @@ int main()
   }
 
   if (id == 3) {
-  	for(uInt i4 = ((N*(3/4))+1); count4 < (N+1); i4 += 2) {
+  	for(uInt i4 = 5410201; count4 < (N+1); i4 += 2) {
 
   		is_prime4 = true;
 
@@ -121,6 +121,8 @@ int main()
   MPI_Finalize();
 
   double difference = double(end - begin);
+
+  int contador = contador1 + contador2 + contador3 + contador4;
 
   cout << "La cantidad de números primos es: " << (count4-1) << endl;
   cout << "El tiempo de ejecución fue: " << difference << " \t Ciclos de reloj" << endl;

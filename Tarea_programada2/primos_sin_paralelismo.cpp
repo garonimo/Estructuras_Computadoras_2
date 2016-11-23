@@ -48,7 +48,7 @@ int main()
 			++count;
 			my_prime = i;
       contador += 1;
-      //cout << my_prime << endl;    //Se imprimen los números
+      cout << my_prime << endl;    //Se imprimen los números
 		}
 	}
 
