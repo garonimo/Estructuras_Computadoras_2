@@ -45,7 +45,7 @@ int main()
   process = MPI_Comm_rank ( MPI_COMM_WORLD, &id );
 
   if (id == 0) {
-  	for(uInt i1 = 3; count1 < 125001; i1 += 2) {
+  	for(uInt i1 = 3; count1 < ((N/4) +1); i1 += 2) {
 
   		is_prime1 = true;
 
@@ -56,14 +56,14 @@ int main()
   		if(is_prime1) {
   			++count1;
   			my_prime1 = i1;
-        ++contador1;
+        contador1+=1;
         //cout << my_prime << endl;    //Se imprimen los números
   		}
   	}
   }
 
   if (id == 1) {
-  	for(uInt i2 = 125002; count2 < 250001; i2 += 2) {
+  	for(uInt i2 = ((N/4) +1); count2 < ((N/2) +1); i2 += 2) {
 
   		is_prime2 = true;
 
@@ -74,14 +74,14 @@ int main()
   		if(is_prime2) {
   			++count2;
   			my_prime2 = i2;
-        ++contador1;
+        contador2+=1;
         //cout << my_prime << endl;    //Se imprimen los números
   		}
   	}
   }
 
   if (id == 2) {
-  	for(uInt i3 = 250002; count3 < 375001; i3 += 2) {
+  	for(uInt i3 = ((N/2) +2); count3 < ((N*(3/4))+1); i3 += 2) {
 
   		is_prime3 = true;
 
@@ -92,14 +92,14 @@ int main()
   		if(is_prime3) {
   			++count3;
   			my_prime3 = i3;
-        ++contador1;
+        contador3+=1;
         //cout << my_prime << endl;    //Se imprimen los números
   		}
   	}
   }
 
   if (id == 3) {
-  	for(uInt i4 = 375002; count4 < (N+1); i4 += 2) {
+  	for(uInt i4 = ((N*(3/4))+1); count4 < (N+1); i4 += 2) {
 
   		is_prime4 = true;
 
@@ -110,18 +110,19 @@ int main()
   		if(is_prime4) {
   			++count4;
   			my_prime4 = i4;
-        ++contador1;
+        contador4+=1;
         //cout << my_prime4 << endl;    //Se imprimen los números
   		}
   	}
   }
-  MPI_Finalize();
+
   clock_t end = clock();                   //Se termina de medir el tiempo
 
-  double difference = double(end - begin);
-  //int contador = contador1 + contador2 + contador3 + contador4;
+  MPI_Finalize();
 
-  cout << "La cantidad de números primos es: " << contador1 << endl;
+  double difference = double(end - begin);
+
+  cout << "La cantidad de números primos es: " << (count4-1) << endl;
   cout << "El tiempo de ejecución fue: " << difference << " \t Ciclos de reloj" << endl;
 
   return 0;
