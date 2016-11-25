@@ -124,7 +124,7 @@ int main()
 
   int contador = contador1 + contador2 + contador3 + contador4;
 
-  cout << "La cantidad de números primos es: " << (count4-1) << endl;
+  cout << "La cantidad de números primos es: " << (count1-1) << endl;
   cout << "El tiempo de ejecución fue: " << difference << " \t Ciclos de reloj" << endl;
 
   return 0;
