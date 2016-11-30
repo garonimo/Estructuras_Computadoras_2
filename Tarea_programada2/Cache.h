@@ -33,19 +33,18 @@ public:
   ~Cache(); // deconstructor
 
   // retorna asociatividad y tamaños
-  int getAsociatividad() const;
-  int getCache_size() const;
+  int getL1_size() const;
+  int getL2_size() const;
   int getBlock_size() const;
 
   // se definen las funciones MapeoDirecto() y Asociativa()
   double MapeoDirecto() const;
-  double Asociativa() const;
   double MESI() const;
 
   // aquí se encapsulan las variables del objeto
 private:
-  int newAsociatividad;
-  int newCache_size;
+  int newL1_size;
+  int newL2_size;
   int newBlock_size;
 };
 
