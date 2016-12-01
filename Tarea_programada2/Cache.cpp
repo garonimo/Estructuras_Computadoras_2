@@ -26,11 +26,10 @@
 using namespace std; // namespace estándar
 
 // función que recibe los parámetros de la terminal y los asigna al objeto
-Cache::Cache(int L1_size, int L2_size, int block_size)
+Cache::Cache(int Cache_size, int Block_size)
 {
-  newL1_size = L1_size;
-  newL2_size = L2_size;
-  newBlock_size = block_size;
+  newCache_size = Cache_size;
+  newBlock_size = Block_size;
 }
 
 Cache::~Cache() // deconstructor
@@ -38,14 +37,9 @@ Cache::~Cache() // deconstructor
 
 }
 
-int Cache::getL1_size() const // retorna asociatividad
+int Cache::getCache_size() const // retorna el tamaño del caché
 {
-  return newL1_size;
-}
-
-int Cache::getL2_size() const // retorna el tamaño del caché
-{
-  return newL2_size;
+  return newCache_size;
 }
 
 int Cache::getBlock_size() const // retorna el tamaño del bloque
@@ -57,7 +51,8 @@ int Cache::getBlock_size() const // retorna el tamaño del bloque
 double Cache::MESI() const
 {
 
-cout << "hola" << endl;
+  cout << "hola" << endl;
+  cout << "números diferentes = " << newCache_size << endl;
 
   return 0;
 }
@@ -71,7 +66,7 @@ double Cache::MapeoDirecto() const
   int miss = 0; // variable para la cantidad de misses
   int line_number_L1; // variable para la cantidad de líneas del cache
 
-  line_number_L1 = newL1_size / (newBlock_size); // cantidad de líneas de L1
+  line_number_L1 = newCache_size / (newBlock_size); // cantidad de líneas de L1
 
   int offset = log2(newBlock_size); // variable para los bits del offset
   int index = log2(line_number_L1); // variable para los bits del index

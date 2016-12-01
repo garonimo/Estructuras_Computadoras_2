@@ -26,26 +26,24 @@ using namespace std;
 // clase Cache. Aquí se declaran las funciones
 class Cache
 {
-public:
+  public:
 
-  Cache(int, int, int); // constructor
+    Cache(int, int); // constructor
 
-  ~Cache(); // deconstructor
+    ~Cache(); // deconstructor
 
-  // retorna asociatividad y tamaños
-  int getL1_size() const;
-  int getL2_size() const;
-  int getBlock_size() const;
+    // retorna tamaños
+    int getCache_size() const;
+    int getBlock_size() const;
 
-  // se definen las funciones MapeoDirecto() y Asociativa()
-  double MapeoDirecto() const;
-  double MESI() const;
+    // se definen las funciones MapeoDirecto() y MESI()
+    double MapeoDirecto() const;
+    double MESI() const;
 
-  // aquí se encapsulan las variables del objeto
-private:
-  int newL1_size;
-  int newL2_size;
-  int newBlock_size;
+    // aquí se encapsulan las variables del objeto
+  private:
+    int newCache_size;
+    int newBlock_size;
 };
 
 #endif

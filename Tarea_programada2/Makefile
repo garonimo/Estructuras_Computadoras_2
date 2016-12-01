@@ -2,8 +2,8 @@ all:
 	g++ -std=c++11 -o cache.o main.cpp Cache.h Cache.cpp
 
 prime:
-	g++ -o prueba primos_sin_paralelismo.cpp
-	./prueba
+	g++ -o prueba.o primos_sin_paralelismo.cpp
+	./prueba.o
 
 parallel:
 	mpic++ primos_con_paralelismo.cpp

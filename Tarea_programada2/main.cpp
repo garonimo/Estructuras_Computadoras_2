@@ -25,18 +25,16 @@ int main()
 {
 
   // estas serán las variables del objeto caché
-  int L1_size = 8000; 
-  int L2_size = 64000;
-  int block_size = 16;
-
-  srand( time(NULL) ); // semilla para generar el número random de la función Asociativa()
-
+  int Cache_size = 6;
+  int Block_size = 16;
 
   // aquí se instancia el objeto utilizando el nombre de la clase
-  Cache MyCache(L1_size, L2_size, block_size);
+  Cache MyCache1(Cache_size, Block_size);
+  Cache MyCache2(Cache_size+1, Block_size);
 
-//PARA LLAMAR:
-  MyCache.MESI();
+  //PARA LLAMAR:
+  MyCache1.MESI();
+  MyCache2.MESI();
 
   return 0;
 }
