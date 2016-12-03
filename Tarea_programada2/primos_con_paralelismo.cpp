@@ -21,110 +21,98 @@
 #include <cstdio>
 #include "mpi.h"
 
-
 using namespace std;
-typedef unsigned int uInt;
-
 
 int main()
 {
-  bool is_prime1, is_prime2, is_prime3, is_prime4;
+  bool esPrimo1, esPrimo2, esPrimo3, esPrimo4;
 
-	uInt count1 = 1;
-  uInt count2 = 125002;
-  uInt count3 = 250002;
-  uInt count4 = 375002;
-	uInt my_prime1 = 2; //Se empieza en el primer número primo
-  uInt my_prime2, my_prime3, my_prime4;
-  uInt N = 500000;        //Cantidad de numeros primos a encontrar
-  int contador1, contador2, contador3, contador4 = 0;
+	int contador1 = 1;
+  int contador2 = 125002;
+  int contador3 = 250002;
+  int contador4 = 375002;
+	int numero_primo1 = 2; //Se empieza en el primer número primo
+  int numero_primo2, numero_primo3, numero_primo4;
+  int N = 500000;        //Cantidad de numeros primos a encontrar
   int process, id;
 
   clock_t begin = clock();  //Se empieza a medir el tiempo
-  MPI_Init(NULL, NULL);
+  MPI_Init(NULL, NULL);     //Se instancia la librería para el paralelismo
+  
   process = MPI_Comm_rank ( MPI_COMM_WORLD, &id );
 
   if (id == 0) {
-  	for(uInt i1 = 3; count1 < ((N/4) +1); i1 += 2) {
+  	for(int i1 = 3; contador1 < ((N/4) +1); i1 += 2) {
 
-  		is_prime1 = true;
+  		esPrimo1 = true;
 
-  		for(uInt j1 = 3; j1 * j1 <= i1 && is_prime1; j1 += 2)  //Se saltan los multiplos de los
+  		for(int j1 = 3; j1 * j1 <= i1 && esPrimo1; j1 += 2)  //Se saltan los multiplos de los
   			if(i1 % j1 == 0)                                 //numeros ya descartados
-        is_prime1 = false;
+        esPrimo1 = false;
 
-  		if(is_prime1) {
-  			++count1;
-  			my_prime1 = i1;
-        contador1+=1;
-        //cout << my_prime << endl;    //Se imprimen los números
+  		if(esPrimo1) {
+  			++contador1;
+  			numero_primo1 = i1;
   		}
   	}
   }
 
   if (id == 1) {
-  	for(uInt i2 = 1655153; count2 < ((N/2) +1); i2 += 2) {
+  	for(int i2 = 1655153; contador2 < ((N/2) +1); i2 += 2) {
 
-  		is_prime2 = true;
+  		esPrimo2 = true;
 
-  		for(uInt j2 = 3; j2 * j2 <= i2 && is_prime2; j2 += 2)  //Se saltan los multiplos de los
+  		for(int j2 = 3; j2 * j2 <= i2 && esPrimo2; j2 += 2)  //Se saltan los multiplos de los
   			if(i2 % j2 == 0)                                 //numeros ya descartados
-        is_prime2 = false;
+        esPrimo2 = false;
 
-  		if(is_prime2) {
-  			++count2;
-  			my_prime2 = i2;
-        contador2+=1;
-        //cout << my_prime << endl;    //Se imprimen los números
+  		if(esPrimo2) {
+  			++contador2;
+  			numero_primo2 = i2;
   		}
   	}
   }
 
   if (id == 2) {
-  	for(uInt i3 = 3497873; count3 < 375001; i3 += 2) {
+  	for(int i3 = 3497873; contador3 < 375001; i3 += 2) {
 
-  		is_prime3 = true;
+  		esPrimo3 = true;
 
-  		for(uInt j3 = 3; j3 * j3 <= i3 && is_prime3; j3 += 2)  //Se saltan los multiplos de los
+  		for(int j3 = 3; j3 * j3 <= i3 && esPrimo3; j3 += 2)  //Se saltan los multiplos de los
   			if(i3 % j3 == 0)                                 //numeros ya descartados
-        is_prime3 = false;
+        esPrimo3 = false;
 
-  		if(is_prime3) {
-  			++count3;
-  			my_prime3 = i3;
-        contador3+=1;
-        //cout << my_prime << endl;    //Se imprimen los números
+  		if(esPrimo3) {
+  			++contador3;
+  			numero_primo3 = i3;
   		}
   	}
   }
 
   if (id == 3) {
-  	for(uInt i4 = 5410201; count4 < (N+1); i4 += 2) {
+  	for(int i4 = 5410201; contador4 < (N+1); i4 += 2) {
 
-  		is_prime4 = true;
+  		esPrimo4 = true;
 
-  		for(uInt j4 = 3; j4 * j4 <= i4 && is_prime4; j4 += 2)  //Se saltan los multiplos de los
+  		for(int j4 = 3; j4 * j4 <= i4 && esPrimo4; j4 += 2)  //Se saltan los multiplos de los
   			if(i4 % j4 == 0)                                 //numeros ya descartados
-        is_prime4 = false;
+        esPrimo4 = false;
 
-  		if(is_prime4) {
-  			++count4;
-  			my_prime4 = i4;
-        contador4+=1;
-        //cout << my_prime4 << endl;    //Se imprimen los números
+  		if(esPrimo4) {
+  			++contador4;
+  			numero_primo4 = i4;
   		}
   	}
   }
 
   clock_t end = clock();                   //Se termina de medir el tiempo
 
-  MPI_Finalize();
+  MPI_Finalize();                          //Fin del paralelismo
 
   double difference = double(end - begin);
 
-  int contador = contador1 + contador2 + contador3 + contador4;
 
-  cout << "La cantidad de números primos es: " << (count1-1) << endl;
+  cout << "La cantidad de números primos es: " << (contador1-1) << endl;
   cout << "El tiempo de ejecución fue: " << difference << " \t Ciclos de reloj" << endl;
 
   return 0;

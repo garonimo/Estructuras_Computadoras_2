@@ -22,33 +22,31 @@
 
 
 using namespace std;
-typedef unsigned int uInt;
 
 
 int main()
 {
-  bool is_prime;
+  bool esPrimo;
 
-	uInt count = 1;
-	uInt my_prime = 2; //Se empieza en el primer número primo
-  uInt N = 500000;        //Cantidad de numeros primos a encontrar
+	int contando = 1;
+	int numero_primo = 2; //Se empieza en el primer número primo
+  int N = 500000;        //Cantidad de numeros primos a encontrar
   int contador = 0;
 
   clock_t begin = clock();  //Se empieza a medir el tiempo
 
-	for(uInt i = 3; count < (N+1); i += 2) {
+	for(int i = 3; contando < (N+1); i += 2) {
 
-		is_prime = true;
+		esPrimo = true;
 
-		for(uInt j = 3; j * j <= i && is_prime; j += 2)  //Se saltan los multiplos de los
+		for(int j = 3; j * j <= i && esPrimo; j += 2)  //Se saltan los multiplos de los
 			if(i % j == 0)                                 //numeros ya descartados
-      is_prime = false;
+      esPrimo = false;
 
-		if(is_prime) {
-			++count;
-			my_prime = i;
+		if(esPrimo) {
+			++contando;
+			numero_primo = i;
       contador += 1;
-      //cout << my_prime << endl;    //Se imprimen los números
 		}
 	}
 
