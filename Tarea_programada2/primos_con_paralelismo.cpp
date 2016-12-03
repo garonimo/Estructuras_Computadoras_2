@@ -43,8 +43,8 @@ int main()
                                                     //de cada procesador
 
   if (id == 0) {  //Aquí por ejemplo si el id es cero quiere decir que es el primer CPU
-  	for(int i1 = 3; contador1 < ((N/4) +1); i1 += 2) {
-
+  	for(int i1 = 3; contador1 < ((N/4) +1); i1 += 2) { //Por lo tanto lo que esta dentro del if
+                                                       //es ejecutado únicamente por el CPU0
   		esPrimo1 = true;
 
   		for(int j1 = 3; j1 * j1 <= i1 && esPrimo1; j1 += 2)  //Se saltan los multiplos de los
