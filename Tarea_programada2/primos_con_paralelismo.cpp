@@ -38,10 +38,11 @@ int main()
 
   clock_t begin = clock();  //Se empieza a medir el tiempo
   MPI_Init(NULL, NULL);     //Se instancia la librería para el paralelismo
-  
-  process = MPI_Comm_rank ( MPI_COMM_WORLD, &id );
 
-  if (id == 0) {
+  process = MPI_Comm_rank ( MPI_COMM_WORLD, &id );  //En la variable id se guarda el número
+                                                    //de cada procesador
+
+  if (id == 0) {  //Aquí por ejemplo si el id es cero quiere decir que es el primer CPU
   	for(int i1 = 3; contador1 < ((N/4) +1); i1 += 2) {
 
   		esPrimo1 = true;
