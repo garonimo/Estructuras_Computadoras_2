@@ -25,7 +25,7 @@ int main()
 {
 
   // estas serán las variables del objeto caché
-  int Cache_size = 6;
+  int Cache_size = 8000;
   int Block_size = 16;
 
   // aquí se instancia el objeto utilizando el nombre de la clase
